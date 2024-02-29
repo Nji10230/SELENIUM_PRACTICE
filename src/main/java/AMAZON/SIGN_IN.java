@@ -64,18 +64,22 @@ public class SIGN_IN {
        // System.out.println("sigin details of user:- " +details_encrpted);
       //  password = driver.findElement(By.xpath("//input[@id='ap_password']"));
 
-        otp();
+        otp(details_encrpted);
 
 
     }
 
-    private void otp() throws InterruptedException {
+    private void otp(List<String>details_encrpted) throws InterruptedException {
          WebElement otp_enter=driver.findElement(By.xpath("//input[@maxlength=6]"));
         System.out.println("user please enter the otp :- ");
           otp_enter.sendKeys(sc.nextLine());
           //otp_enter.click();
            Thread.sleep(3000);
           driver.findElement(By.xpath("//span[text()='Submit code']")).submit();
+           System.out.println(details_encrpted);
+
+
+          driver.quit();
 
     }
 
